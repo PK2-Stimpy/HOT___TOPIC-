@@ -443,8 +443,8 @@ public class MenuComponent
 
     public int GetTextColor()
     {
-    	return Colors.Red.getValue();
-    	//return (Colors.Red.getValue() << 16) & 0x00FF0000 | (Colors.Green.getValue() << 8) & 0x0000FF00 | Colors.Blue.getValue() & 0x000000FF;
+    	
+    	return (Colors.Red.getValue() << 16) & 0x00FF0000 | (Colors.Green.getValue() << 8) & 0x0000FF00 | Colors.Blue.getValue() & 0x000000FF;
     }
 
     public void Default()
