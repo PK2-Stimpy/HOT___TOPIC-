@@ -1,0 +1,44 @@
+[
+    {
+      "modid": "pk2stuff",
+      "name": "HOT___TOPICPlus",
+      "description": "HOT___TOPIC's utility mod. HEIL MR. TOPIC!",
+      "version": "${modVersion}",
+      "mcversion": "${version_minecraft}",
+      "url": "https://www.google.com/",
+      "updateUrl": "https://www.google.com/",
+      "authorList": ["PK2_Stimpy"],
+      "credits": "HOT___TOPIC",
+      "logoFile": "assets/salhack/imgs/hotwatermark.png",
+      "screenshots": [],
+      "dependencies": []
+    },
+    {
+      "modid": "lunatriuscore",
+      "name": "LunatriusCore",
+      "description": "A collection of utilities for Lunatrius' mods.",
+      "mcversion": "${version_minecraft}",
+      "version": "${version_lunatriuscore}",
+      "authorList": ["Lunatrius"],
+      "credits": "",
+      "dependencies": [],
+      "logoFile": "",
+      "screenshots": [],
+      "updateUrl": "http://mc.lunatri.us/",
+      "url": "http://mc.lunatri.us/"
+    },
+    {
+      "modid": "schematica",
+      "name": "Schematica",
+      "description": "Import and export Minecraft schematic files in Minecraft!",
+      "mcversion": "${version_minecraft}",
+      "version": "${version_schematica}",
+      "authorList": ["Lunatrius"],
+      "credits": "AbrarSyed, AtomicBlom, UltraMoogleMan",
+      "dependencies": [],
+      "logoFile": "assets/schematica/logo.png",
+      "screenshots": [],
+      "updateUrl": "http://mc.lunatri.us/",
+      "url": "http://mc.lunatri.us/"
+    }
+]
