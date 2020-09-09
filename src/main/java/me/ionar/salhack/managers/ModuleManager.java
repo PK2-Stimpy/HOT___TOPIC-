@@ -77,6 +77,8 @@ public class ModuleManager
         Add(new NewChunksModule());
         Add(new PacketCancellerModule());
         Add(new PacketFlyModule());
+        Add(new PhobosOffhandCrashModule());
+        Add(new PingBypassModule());
         Add(new PortalGodModeModule());
         Add(new SwingModule());
 

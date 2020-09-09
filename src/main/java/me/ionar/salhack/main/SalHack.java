@@ -15,6 +15,11 @@ import me.ionar.salhack.managers.PresetsManager;
 import me.ionar.salhack.managers.TickRateManager;
 import me.ionar.salhack.managers.UUIDManager;
 import me.ionar.salhack.waypoints.WaypointManager;
+import net.minecraft.client.gui.GuiDisconnected;
+import net.minecraft.client.gui.GuiDownloadTerrain;
+import net.minecraft.client.gui.GuiMainMenu;
+import net.minecraft.client.gui.GuiMultiplayer;
+import net.minecraft.client.multiplayer.GuiConnecting;
 import net.minecraft.util.text.TextComponentString;
 
 public class SalHack
@@ -68,6 +73,10 @@ public class SalHack
     public static FontManager GetFontManager()
     {
         return m_FontManager;
+    }
+    
+    public static boolean inGame() {
+    	return ((Wrapper.GetMC().ingameGUI != null || Wrapper.GetPlayer() == null) && !(Wrapper.GetMC().currentScreen instanceof GuiMainMenu || Wrapper.GetMC().currentScreen instanceof GuiDisconnected || Wrapper.GetMC().currentScreen instanceof GuiDownloadTerrain || Wrapper.GetMC().currentScreen instanceof GuiConnecting || Wrapper.GetMC().currentScreen instanceof GuiMultiplayer));
     }
 
     /// Writes a message to ingame chat
