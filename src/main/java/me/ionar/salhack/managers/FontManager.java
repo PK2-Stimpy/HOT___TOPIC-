@@ -10,6 +10,8 @@ public class FontManager
     public SalFontRenderer TWCenMt18 = null;
     public SalFontRenderer TwCenMtStd28 = null;
     public SalFontRenderer VerdanaBold = null;
+    public SalFontRenderer Title28 = null;
+    public SalFontRenderer ModName17 = null;
     
     public FontManager()
     {
@@ -20,6 +22,8 @@ public class FontManager
         TWCenMt18 = new SalFontRenderer("Tw Cen MT", 18);
         TwCenMtStd28 = new SalFontRenderer("Tw Cen MT Std", 28.14f);
         VerdanaBold = new SalFontRenderer("VerdanaBold", 20f);
+        Title28 = new SalFontRenderer("Mario-Kart-DS", 28.14f);
+        ModName17 = new SalFontRenderer("Minecraft", 17);
         
         for (int l_I = 0; l_I < FontRenderers.length; ++l_I)
             FontRenderers[l_I] = new SalFontRenderer("Tw Cen MT", l_I);

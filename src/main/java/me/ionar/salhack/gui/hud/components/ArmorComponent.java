@@ -112,7 +112,7 @@ public class ArmorComponent extends HudComponentItem
                     mc.getRenderItem().renderItemAndEffectIntoGUI(l_Stack, (int)(GetX() + l_X), (int)GetY()+10);
                     mc.getRenderItem().renderItemOverlays(mc.fontRenderer, l_Stack, (int)(GetX() + l_X), (int)GetY()+10);
                     
-                    FontManager.Get().TWCenMt18. drawCenteredString(Formatter.format(GetPctFromStack(l_Stack)), GetX() + l_TextX, GetY(), -1);
+                    FontManager.Get().ModName17. drawCenteredString(Formatter.format(GetPctFromStack(l_Stack)), GetX() + l_TextX, GetY(), -1);
                     
                     l_X += 20;
                     

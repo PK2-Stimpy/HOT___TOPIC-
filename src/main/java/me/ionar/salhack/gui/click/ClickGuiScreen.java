@@ -182,6 +182,7 @@ public class ClickGuiScreen extends SalGuiScreen
             GlStateManager.enableTexture2D();
             GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
             int OFFSCALE[] = {150, 150};
+            
             RenderUtil.drawTexture(OFFSCALE[0], res.getScaledHeight() - Watermark.GetHeight() - 5 + OFFSCALE[1], Watermark.GetWidth() / 2,
                     Watermark.GetHeight() / 2, 0, 0, 1, 1);
 

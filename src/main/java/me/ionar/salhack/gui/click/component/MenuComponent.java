@@ -135,7 +135,7 @@ public class MenuComponent
         RenderUtil.drawGradientRect(GetX(), GetY()+17-p_OffsetY, GetX()+GetWidth(), GetY()+GetHeight(), 0x992A2A2A, 0x992A2A2A);
 
         RenderUtil.drawRect(GetX(), GetY()-p_OffsetY, GetX() + GetWidth(), GetY() + 17-p_OffsetY, 0x99000000); /// top
-        FontManager.Get().TwCenMtStd28.drawStringWithShadow(GetDisplayName(), GetX() + 2, GetY() + 1-p_OffsetY, GetTextColor());
+        FontManager.Get().Title28.drawStringWithShadow(GetDisplayName(), GetX() + 2, GetY() + 1-p_OffsetY, GetTextColor());
 
         
         if (BarTexture != null)
@@ -238,6 +238,7 @@ public class MenuComponent
         
         if (p_Item.HasState(ComponentItem.Extended))
         {
+        	
             RenderUtil.drawRect(X+1,p_Y,X+p_Item.GetWidth()-3,p_Y + RenderUtil.getStringHeight(p_Item.GetDisplayText()) + 3,0x080808);
         }
         
@@ -279,7 +280,8 @@ public class MenuComponent
 
         if (p_Item.HasState(ComponentItem.Extended) || p_DisplayExtendedLine)
         {
-            RenderUtil.drawLine(X + p_Item.GetWidth() - 1, p_Y, X + p_Item.GetWidth() - 1, p_Y + 11, 3, GetColor());
+        	int greenColor = (Colors.Alpha.getValue() << 24) & 0xFF000000 | (Colors.Red.getValue() << 16) & 0x00000000 | (Colors.Green.getValue() << 8) & 0x0000FF00 | Colors.Blue.getValue() & 0x00000000;
+            RenderUtil.drawLine(X + p_Item.GetWidth() - 1, p_Y, X + p_Item.GetWidth() - 1, p_Y + 11, 3, greenColor); // GetColor()
         }
         
         if (p_Item.HasState(ComponentItem.Extended))

@@ -95,6 +95,8 @@ public class SalFontRenderer
             return getFontFromInput("/assets/salhack/fonts/lucdia-console.ttf");
         if (name == "VerdanaBold")
             return getFontFromInput("/assets/salhack/fonts/verdanabold.ttf");
+        if (name == "Minecraft")
+        	return getFontFromInput("/assets/salhack/fonts/Minecraft.ttf");
         
         // Attempt to find custom fonts
         return Font.createFont(Font.TRUETYPE_FONT, new File(DirectoryManager.Get().GetCurrentDirectory() + "\\SalHack\\Fonts\\" + name + ".ttf"));
