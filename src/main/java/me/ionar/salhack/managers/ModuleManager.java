@@ -156,6 +156,7 @@ public class ModuleManager
         Add(new NoRenderModule());
         Add(new ShulkerPreviewModule());
         Add(new SkeletonModule());
+        Add(new SkyColorModule());
         Add(new StorageESPModule());
         Add(new TracersModule());
         Add(new TrajectoriesModule());
