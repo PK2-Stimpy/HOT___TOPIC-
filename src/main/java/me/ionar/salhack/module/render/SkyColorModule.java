@@ -27,6 +27,7 @@ public class SkyColorModule extends Module {
         event.setBlue(this.b.getValue() / 255.0f);
     }
     
+    
     @SubscribeEvent
     public void fogDensity(final EntityViewRenderEvent.FogDensity event) {
         event.setDensity(0.0f);

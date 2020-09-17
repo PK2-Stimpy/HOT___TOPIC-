@@ -161,6 +161,7 @@ public class ModuleManager
         Add(new TracersModule());
         Add(new TrajectoriesModule());
         Add(new ViewClipModule());
+        Add(new ViewModelModule()); /* New Town Paja */
         Add(new VoidESPModule());
         Add(new WaypointsModule());
 
