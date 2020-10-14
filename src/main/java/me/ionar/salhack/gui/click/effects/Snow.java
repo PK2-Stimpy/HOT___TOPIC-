@@ -43,7 +43,7 @@ public class Snow
 
     public void Update(ScaledResolution res)
     {
-        RenderUtil.drawRect(getX(), getY(), getX()+_size, getY()+_size, 0x99C9C5C5);
+        RenderUtil.drawRect(getX(), getY(), getX()+_size, getY()+_size, 0xD00909); // 0x99C9C5C5
         
         setY(getY() + _fallingSpeed);
         

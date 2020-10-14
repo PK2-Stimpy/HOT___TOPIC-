@@ -134,6 +134,7 @@ public class ModuleManager
         Add(new SpeedModule());
         Add(new SprintModule());
         Add(new StepModule());
+        //Add(new StrafePhobosModule()); /* Experimental Cum Challenge */
         Add(new YawModule());
         
         /// Render
@@ -180,6 +181,7 @@ public class ModuleManager
         Add(new AutoToolModule());
         Add(new AutoTunnelModule());
         Add(new AutoWitherModule());
+        Add(new DonkeyLoggerModule()); /* new */
         Add(new EnderChestFarmer());
         Add(new FastPlaceModule());
         Add(new LawnmowerModule());

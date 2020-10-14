@@ -8,6 +8,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.events.render.EventRenderUpdateEquippedItem;
 import me.ionar.salhack.events.render.EventTransformSideFirstPersonEvent;
+import me.ionar.salhack.main.SalHack;
+import me.ionar.salhack.module.render.ViewModelModule;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.util.EnumHandSide;
 
@@ -18,6 +20,14 @@ public class MixinItemRenderer
 	public void transformSideFirstPerson(EnumHandSide hand, float p_187459_2_, CallbackInfo ci) {
 		EventTransformSideFirstPersonEvent event = new EventTransformSideFirstPersonEvent(hand);
 		SalHackMod.EVENT_BUS.post(event);
+		
+		/*
+		if(SalHack.GetModuleManager().GetMod(ViewModelModule.class) != null) {
+			ViewModelModule module = (ViewModelModule)SalHack.GetModuleManager().GetMod(ViewModelModule.class);
+			if(module.isEnabled() && ViewModelModule.cancelEating.getValue()) 
+				ci.cancel();
+		}
+		*/
 	}
 	
     @Inject(method = "updateEquippedItem", at = @At("HEAD"), cancellable = true)

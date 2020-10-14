@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.EnumHandSide;
 
 public class ViewModelModule extends Module {
-	public static Value<Boolean> cancelEating = new Value<Boolean>("NoEat", new String[] {""}, "No Eat.", false);
+	//public static Value<Boolean> cancelEating = new Value<Boolean>("NoEat", new String[] {""}, "No Eat.", false);
 	public static Value<Double> xLeft = new Value<Double>("Left X", new String[] {""}, "LeftX", 2.0, 0.0, 4.0, 0.1);
 	public static Value<Double> yLeft = new Value<Double>("Left Y", new String[] {""}, "LeftY", 2.2, 0.0, 4.0, 0.1);
 	public static Value<Double> zLeft = new Value<Double>("Left Z", new String[] {""}, "LeftZ", 1.2, 0.0, 4.0, 0.1);

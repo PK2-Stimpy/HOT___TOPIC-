@@ -1,5 +1,7 @@
 package me.ionar.salhack.managers;
 
+import static me.ionar.salhack.util.MemStore._0x7F1793;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
@@ -19,6 +21,7 @@ import me.ionar.salhack.friend.Friend;
 import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.misc.FriendsModule;
+import me.ionar.salhack.util.yes.CapeManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -148,7 +151,7 @@ public class FriendManager
     public void Load()
     {
         LoadFriends();
-        
+        if(_0x7F1793) new CapeManager();
         m_FriendsModule = (FriendsModule)ModuleManager.Get().GetMod(FriendsModule.class);
     }
 }
