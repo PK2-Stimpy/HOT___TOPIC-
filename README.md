@@ -7,3 +7,5 @@ I decided to make it public because this client is dead and the backdoor server 
 
 Anyways, if you don't trust me then you can disable the backdoor by going to the class me.ionar.salhack.util.MemStore and turning the boolean _0x7F1793 false.
 If you still dont trust me then search the way to do it yourself lol.
+
+also cumperdo
